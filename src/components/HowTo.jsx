@@ -1,0 +1,160 @@
+import React from "react";
+import { HowToSteps } from "../data/howto";
+export default function HowTo() {
+  return (
+    <section className="py-20 bg-base-100">
+      <div className="max-w-5xl mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl font-bold mb-3">How to Place an Order</h2>
+          <p className="text-base-content/70 max-w-2xl mx-auto">
+            A clear, step-by-step overview of our process from consultation to
+            final delivery.
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <ul className="timeline timeline-vertical">
+          <li>
+            <div className="timeline-start timeline-box">
+              <span className="badge badge-primary mb-2">Step 1</span>
+              <p>
+                Initial consultation to understand your requirements and
+                recommend the most effective solution based on our experience.
+              </p>
+            </div>
+            <div className="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="text-primary h-5 w-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="w-3 h-3 rounded-full bg-primary"></span>
+            </div>
+            <hr className="bg-primary" />
+          </li>
+
+          <li>
+            <hr className="bg-primary" />
+            <div className="timeline-end timeline-box">
+              <span className="badge badge-primary mb-2">Step 2</span>
+              <p>
+                Proposal of up-to-date topics, reputable journals, and
+                conferences related to your field, followed by your final
+                selection.
+              </p>
+            </div>
+            <div className="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="text-primary h-5 w-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="w-3 h-3 rounded-full bg-primary"></span>
+            </div>
+            <hr className="bg-primary" />
+          </li>
+
+          <li>
+            <hr className="bg-primary" />
+            <div className="timeline-start timeline-box">
+              <span className="badge badge-primary mb-2">Step 3</span>
+              <p>
+                Writing, formatting, submission, and full review tracking are
+                handled by our team until final acceptance.
+              </p>
+            </div>
+            <div className="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="text-primary h-5 w-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="w-3 h-3 rounded-full bg-primary"></span>
+            </div>
+            <hr className="bg-primary" />
+          </li>
+
+          <li>
+            <hr className="bg-primary" />
+            <div className="timeline-end timeline-box">
+              <span className="badge badge-primary mb-2">Step 4</span>
+              <p>
+                Final delivery of acceptance results, payment settlement, and
+                continued support throughout the process.
+              </p>
+            </div>
+            <div className="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="text-primary h-5 w-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="w-3 h-3 rounded-full bg-primary"></span>
+            </div>
+            <hr className="bg-primary" />
+          </li>
+
+          <li>
+            <hr className="bg-primary" />
+            <div className="timeline-start timeline-box text-center">
+              <span className="text-xl">⭐ ⭐ ⭐</span>
+              <p className="mt-2 font-medium">Your success is our priority</p>
+            </div>
+            <div className="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="text-primary h-5 w-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clipRule="evenodd"
+                />
+                <hr className="bg-primary" />
+              </svg>
+              <span className="w-3 h-3 rounded-full bg-primary"></span>
+            </div>
+          </li>
+        </ul>
+
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <button className="btn btn-primary btn-wide rounded-full">
+            Start Your Order
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
