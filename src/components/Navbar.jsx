@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileMenu from "./MobileNavbar";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const pathName = location.pathname;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
@@ -22,16 +24,16 @@ export default function Header() {
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto max-w-6xl lg:px-6 px-2 h-16 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl lg:px-2 px-2 h-16 flex items-center justify-between ">
           {/* Logo / Name */}
           <div className="font-semibold text-lg tracking-tight">
             <a href="/">
-              Iman<span className="text-blue-600">.</span>
+              Iman<span className="text-primary">.</span>
             </a>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center">
+          <nav className="hidden md:flex items-center mx-auto">
             <div className="relative flex flex-row gap-8 text-sm font-sans text-base-content">
               <Link to="/cv" className="relative group py-2">
                 <span className="transition-colors group-hover:text-primary">
@@ -40,17 +42,6 @@ export default function Header() {
                 <span
                   className={`absolute left-0 -bottom-0.5 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full ${
                     pathName === "/cv" ? "w-full bg-secondary" : ""
-                  }`}
-                />
-              </Link>
-
-              <Link to="/research" className="relative group py-2">
-                <span className="transition-colors group-hover:text-primary">
-                  Research
-                </span>
-                <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full ${
-                    pathName === "/research" ? "w-full bg-secondary" : ""
                   }`}
                 />
               </Link>
@@ -91,15 +82,19 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <a
-            href="#contact"
-            className="text-sm font-medium px-4 py-2 rounded-full
-            bg-blue-600 text-white hover:bg-blue-700 transition hidden lg:block"
-          >
-            Contact
-          </a>
-          <div className="flex justify-end">
-            <MobileMenu />
+          <div className="justify-end items-center flex gap-1">
+            <a
+              href="/order"
+              className="text-md font-bold px-4 py-2 rounded-full
+            bg-primary text-primary-content hover:bg-primary transition hidden lg:block"
+            >
+              ثبت سفارش+
+            </a>
+            <div className="flex justify-endm ">
+              <ThemeToggle />
+
+              <MobileMenu />
+            </div>
           </div>
         </div>
       </header>

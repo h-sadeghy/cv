@@ -1,47 +1,85 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+const HERO_IMAGES = [
+  {
+    src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+    alt: "International Academic Conference",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1457694587812-e8bf29a43845",
+    alt: "Scientific Journals and Research Articles",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade",
+    alt: "Berlin Academic Event",
+  },
+];
 
 export default function HeroGlassLarge() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-screen  flex items-center justify-center lg:overflow-hidden pt-8 ">
+    <section className="relative min-h-screen flex items-center justify-center pt-10">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-linear-to-br from-secondary/40 via-secondary/10 to-accent/10 blur-3xl   " />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/90 to-accent/90 blur-3xl" />
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 lg:glass rounded-3xl lg:max-w-6xl w-full lg:mx-6 lg:p-8 md:p-12 "
+        className="relative z-10 lg:glass rounded-3xl max-w-6xl w-full mx-4 p-6 md:p-10"
       >
-        <div className="grid md:grid-cols-2 lg:gap-10 gap-3  items-center">
-          {/* IMAGE */}
-          <motion.img
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
-            src="https://res.cloudinary.com/dv3quprrl/image/upload/f_auto,q_auto/v1766397013/image1_pqaxkx.jpg"
-            alt="imans portrait"
-            className="w-full lg:h-[420px] h-full px-1 lg:px-0 lg:object-cover   rounded-2xl shadow-2xl"
-          />
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          {/* Images */}
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={index}
+              src={HERO_IMAGES[index].src}
+              alt={HERO_IMAGES[index].alt}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+              className="w-full h-[420px] object-cover"
+            />
+          </AnimatePresence>
 
-          {/* TEXT */}
-          <div>
-            <h1 className="text-4xl px-2 lg:text-5xl font-bold leading-tight">
-              University Proffesor <br />
-            </h1>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/45 flex items-center">
+            <div className="max-w-xl px-6 text-white">
+              <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
+                International Conference
+                <br />
+                Berlin, Germany — 2026
+              </h1>
 
-            <p className="lg:mt-6 px-2 text-base-content/70 text-lg mt-2">
-              With More Than 200 Published Articles
-            </p>
+              <p className="mt-4 text-white/80 text-lg">
+                Open for journal submissions, research articles, and conference
+                papers. Professional academic support from submission to
+                acceptance.
+              </p>
 
-            <div className="lg:mt-8 flex gap-4 px-2 mt-2">
-              <button className="btn btn-primary rounded-full">
-                View Projects
-              </button>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <Link to="/order" className="btn btn-primary rounded-full">
+                  Place an Order
+                </Link>
 
-              <button className="btn btn-error rounded-full">
-                <Link to="/order">Order A Certificate</Link>
-              </button>
+                <Link
+                  to="/certificates"
+                  className="btn btn-outline btn-white rounded-full"
+                >
+                  View Accepted Journals
+                </Link>
+              </div>
             </div>
           </div>
         </div>

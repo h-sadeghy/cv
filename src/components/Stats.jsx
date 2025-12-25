@@ -30,7 +30,7 @@ export default function Stats() {
         <div
           className="
             stats stats-vertical lg:stats-horizontal
-            bg-base-200 shadow
+            bg-base-300 shadow
             w-full
           "
         >

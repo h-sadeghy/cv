@@ -27,7 +27,7 @@ export default function OrderDetails() {
         {/* Back */}
         <button
           onClick={() => navigate(-1)}
-          className="btn btn-ghost btn-sm mb-2"
+          className="btn btn-ghost btn-lg mb-2"
         >
           ← Back
         </button>

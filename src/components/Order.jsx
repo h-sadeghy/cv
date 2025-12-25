@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { LuTriangleAlert } from "react-icons/lu";
 import { FILTERS } from "../data/filters";
 export default function Order() {
-  const [gridCols, setGridCols] = useState(3);
+  const [gridCols, setGridCols] = useState(4);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState("All");
@@ -27,7 +27,7 @@ export default function Order() {
   return (
     <main className="min-h-screen bg-base-100 py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-4 flex flex-wrap gap-2">
+        <div className="mb-4 lg:flex lg:flex-wrap   gap-2">
           {FILTERS.map((f) => (
             <button
               key={f.key}
@@ -36,7 +36,7 @@ export default function Order() {
                 setShowAll(false);
               }}
               className={`btn btn-sm rounded-full transition
-                ${filter === f.en ? "btn-neutral" : "btn-active"}`}
+                ${filter === f.en ? "btn-neutral" : "btn-dash"}`}
             >
               {f.en}/{f.fa}
             </button>
@@ -77,7 +77,7 @@ export default function Order() {
             </div>
             <button className="flex justify-end  btn btn-warning">
               <LuTriangleAlert />
-              How To
+              نحوه ثبت سفارش
             </button>
           </div>
         </header>
@@ -96,7 +96,7 @@ export default function Order() {
         {/* Grid */}
         <motion.div
           layout
-          className={`grid gap-6 grid-cols-1 md:grid-cols-2  
+          className={`grid gap-6 grid-cols-1 md:grid-cols-2   
                   ${gridCols === 3 && "lg:grid-cols-3"}
                   ${gridCols === 4 && "lg:grid-cols-4"}
                 }`}
@@ -110,7 +110,7 @@ export default function Order() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
                 transition={{ duration: 0.25 }}
-                className="card bg-base-100 border border-base-300"
+                className="card bg-base-200 border border-primary/20"
               >
                 <div className="card-body p-6 flex flex-col ">
                   <div>
@@ -118,16 +118,16 @@ export default function Order() {
                     <p className="text-sm text-base-content/70">
                       {cert.issuer}
                     </p>
-                    <span className="badge badge-outline mt-2">
+                    <span className="badge badge-outline badge-primary mt-2">
                       {cert.type}
                     </span>
                   </div>
 
-                  <div className="mt-4 flex-1 flex items-center justify-center">
+                  <div className="mt-4 flex-1 flex items-center justify-center w-full">
                     <img
                       src={cert.images[0]}
                       alt={cert.title}
-                      className="max-h-32 object-contain"
+                      className="max-h-42    object-contain"
                     />
                   </div>
 
@@ -136,7 +136,7 @@ export default function Order() {
                       className="btn btn-primary btn-sm w-full"
                       onClick={() => setSelected(cert)}
                     >
-                      Order Certificate
+                      ثبت سفارش
                     </button>
                   </div>
                 </div>

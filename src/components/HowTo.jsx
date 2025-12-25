@@ -17,10 +17,11 @@ export default function HowTo() {
         <ul className="timeline timeline-vertical">
           <li>
             <div className="timeline-start timeline-box">
-              <span className="badge badge-primary mb-2">Step 1</span>
+              <span className="badge badge-primary mb-2">مرحله1</span>
               <p>
-                Initial consultation to understand your requirements and
-                recommend the most effective solution based on our experience.
+                مشاوره قبل از انجام کار به شما مشاوره داده می شود تا بهترین راه
+                حل ارائه گردد و تجربیات چندین ساله خودمان را در اختیار شما قرار
+                دهیم.
               </p>
             </div>
             <div className="timeline-middle">
@@ -44,11 +45,10 @@ export default function HowTo() {
           <li>
             <hr className="bg-primary" />
             <div className="timeline-end timeline-box">
-              <span className="badge badge-primary mb-2">Step 2</span>
+              <span className="badge badge-primary mb-2">مرحله2</span>
               <p>
-                Proposal of up-to-date topics, reputable journals, and
-                conferences related to your field, followed by your final
-                selection.
+                پیشنهاد و ارائه موضوعات به روز و جدید و همایش ها و مجالات معتبر
+                در رشته و گرایش شما و انتخاب عنوان مقاله توسط شما.
               </p>
             </div>
             <div className="timeline-middle">
@@ -72,10 +72,10 @@ export default function HowTo() {
           <li>
             <hr className="bg-primary" />
             <div className="timeline-start timeline-box">
-              <span className="badge badge-primary mb-2">Step 3</span>
+              <span className="badge badge-primary mb-2">مرحله3</span>
               <p>
-                Writing, formatting, submission, and full review tracking are
-                handled by our team until final acceptance.
+                نگارش مقاله، فرمت بندی، ساخت پنل به نام شما، ارسال مقاله، پیگیری
+                داوری مقالات و تا پذیرش نهایی توسط ما انجام می شود.
               </p>
             </div>
             <div className="timeline-middle">
@@ -99,10 +99,10 @@ export default function HowTo() {
           <li>
             <hr className="bg-primary" />
             <div className="timeline-end timeline-box">
-              <span className="badge badge-primary mb-2">Step 4</span>
+              <span className="badge badge-primary mb-2">مرحله 4</span>
               <p>
-                Final delivery of acceptance results, payment settlement, and
-                continued support throughout the process.
+                پذیرش نهایی را به شما تحویل می دهیم و بعد از آن هزینه را از شما
+                دریافت می کنیم. بعد از آن هم در کنار شما هستیم.
               </p>
             </div>
             <div className="timeline-middle">
