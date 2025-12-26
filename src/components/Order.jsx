@@ -25,9 +25,9 @@ export default function Order() {
   }, [filtered, showAll]);
 
   return (
-    <main className="min-h-screen bg-base-100 py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-4 lg:flex lg:flex-wrap   gap-2">
+    <main className="min-h-screen bg-base-300 lg:py-20 py-5 font-sans">
+      <div className="mx-auto max-w-6xl px-6 ">
+        <div dir="rtl" className="mb-4  lg:flex lg:flex-wrap     gap-2">
           {FILTERS.map((f) => (
             <button
               key={f.key}
@@ -38,15 +38,15 @@ export default function Order() {
               className={`btn btn-sm rounded-full transition
                 ${filter === f.en ? "btn-neutral" : "btn-dash"}`}
             >
-              {f.en}/{f.fa}
+              {f.fa}
             </button>
           ))}
         </div>
 
         {/* Header */}
         <header className="mb-5 max-w-6xl ">
-          <h1 className="text-4xl font-bold">Order Certificates</h1>
-          <div className="flex flex-row justify-between mt-2 ">
+          <h1 className="text-4xl font-bold justify-end flex  ">ثبت سفارش</h1>
+          <div className="flex flex-row justify-between mt-2 bg-base-300 ">
             <button className="btn btn-active">
               {filter ? filter : "all"}
               <div className="badge badge-sm badge-ghost">
@@ -75,7 +75,7 @@ export default function Order() {
                 <TfiLayoutGrid4Alt size={18} />
               </button>
             </div>
-            <button className="flex justify-end  btn btn-warning">
+            <button className="flex justify-end   btn btn-warning">
               <LuTriangleAlert />
               نحوه ثبت سفارش
             </button>
@@ -104,40 +104,63 @@ export default function Order() {
           <AnimatePresence>
             {visible.map((cert) => (
               <motion.div
-                key={cert.id}
                 layout
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
-                transition={{ duration: 0.25 }}
-                className="card bg-base-200 border border-primary/20"
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                onClick={() => setSelected(cert)}
+                key={cert.id}
+                className="cursor-pointer   "
               >
-                <div className="card-body p-6 flex flex-col ">
-                  <div>
-                    <h3 className="font-semibold line-clamp-2">{cert.title}</h3>
-                    <p className="text-sm text-base-content/70">
-                      {cert.issuer}
-                    </p>
-                    <span className="badge badge-outline badge-primary mt-2">
-                      {cert.type}
-                    </span>
-                  </div>
-
-                  <div className="mt-4 flex-1 flex items-center justify-center w-full">
+                <div className="card image-full w-full h-64 rounded-xl overflow-hidden  ">
+                  {/* Image */}
+                  <figure>
                     <img
                       src={cert.images[0]}
                       alt={cert.title}
-                      className="max-h-42    object-contain"
+                      className="object-cover w-full h-full"
                     />
-                  </div>
+                  </figure>
 
-                  <div className="card-actions mt-4">
-                    <button
-                      className="btn btn-primary btn-sm w-full"
-                      onClick={() => setSelected(cert)}
-                    >
-                      ثبت سفارش
-                    </button>
+                  {/* Overlay content */}
+                  <div className="card-body justify-end">
+                    {/* Top badges */}
+                    <div className="flex justify-between items-center">
+                      <span className="badge badge-outline gap-1">
+                        {cert.flag} {cert.countryCode}
+                      </span>
+
+                      <span
+                        className={`badge ${
+                          cert.status === "Open"
+                            ? "badge-success"
+                            : "badge-neutral"
+                        }`}
+                      >
+                        {cert.status}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="card-title text-lg leading-tight">
+                      {cert.title}
+                    </h2>
+
+                    {/* Meta */}
+                    <p className="text-sm opacity-80">
+                      {cert.type} · {cert.year}
+                    </p>
+
+                    {/* Action */}
+                    <div className="card-actions justify-end mt-2">
+                      <button
+                        className="btn btn-sm btn-primary"
+                        disabled={cert.status !== "Open"}
+                      >
+                        Order
+                      </button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -145,8 +168,6 @@ export default function Order() {
           </AnimatePresence>
         </motion.div>
       </div>
-
-      {/* Order Modal */}
       <AnimatePresence>
         {selected && (
           <motion.div

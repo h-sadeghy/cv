@@ -2,11 +2,11 @@ import React from "react";
 import { HowToSteps } from "../data/howto";
 export default function HowTo() {
   return (
-    <section className="py-20 bg-base-100">
-      <div className="max-w-5xl mx-auto px-4">
+    <section className="py-20  max-w-6xl  mx-auto bg-base-300 font-serif ">
+      <div className="max-w-5xl mx-auto px-4 ">
         {/* Header */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold mb-3">How to Place an Order</h2>
+          <h2 className="text-3xl font-bold mb-3">راهنمای ثبت سفارش</h2>
           <p className="text-base-content/70 max-w-2xl mx-auto">
             A clear, step-by-step overview of our process from consultation to
             final delivery.
@@ -16,14 +16,15 @@ export default function HowTo() {
         {/* Timeline */}
         <ul className="timeline timeline-vertical">
           <li>
-            <div className="timeline-start timeline-box">
-              <span className="badge badge-primary mb-2">مرحله1</span>
-              <p>
-                مشاوره قبل از انجام کار به شما مشاوره داده می شود تا بهترین راه
+            <div dir="rtl" className="timeline-end timeline-box     ">
+              <span className="badge badge-primary     ">مرحله1</span>
+              <p className="lg:text-lg text-sm   ">
                 حل ارائه گردد و تجربیات چندین ساله خودمان را در اختیار شما قرار
+                مشاوره قبل از انجام کار به شما مشاوره داده می شود تا بهترین راه
                 دهیم.
               </p>
             </div>
+
             <div className="timeline-middle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,9 +45,9 @@ export default function HowTo() {
 
           <li>
             <hr className="bg-primary" />
-            <div className="timeline-end timeline-box">
+            <div dir="rtl" className="timeline-start timeline-box">
               <span className="badge badge-primary mb-2">مرحله2</span>
-              <p>
+              <p className="lg:text-lg text-sm">
                 پیشنهاد و ارائه موضوعات به روز و جدید و همایش ها و مجالات معتبر
                 در رشته و گرایش شما و انتخاب عنوان مقاله توسط شما.
               </p>
@@ -71,9 +72,9 @@ export default function HowTo() {
 
           <li>
             <hr className="bg-primary" />
-            <div className="timeline-start timeline-box">
+            <div dir="rtl" className="timeline-end timeline-box">
               <span className="badge badge-primary mb-2">مرحله3</span>
-              <p>
+              <p className="lg:text-lg text-sm">
                 نگارش مقاله، فرمت بندی، ساخت پنل به نام شما، ارسال مقاله، پیگیری
                 داوری مقالات و تا پذیرش نهایی توسط ما انجام می شود.
               </p>
@@ -98,9 +99,9 @@ export default function HowTo() {
 
           <li>
             <hr className="bg-primary" />
-            <div className="timeline-end timeline-box">
+            <div dir="rtl" className="timeline-start timeline-box">
               <span className="badge badge-primary mb-2">مرحله 4</span>
-              <p>
+              <p className="lg:text-lg text-sm">
                 پذیرش نهایی را به شما تحویل می دهیم و بعد از آن هزینه را از شما
                 دریافت می کنیم. بعد از آن هم در کنار شما هستیم.
               </p>
@@ -125,7 +126,7 @@ export default function HowTo() {
 
           <li>
             <hr className="bg-primary" />
-            <div className="timeline-start timeline-box text-center">
+            <div className="timeline-end timeline-box text-center">
               <span className="text-xl">⭐ ⭐ ⭐</span>
               <p className="mt-2 font-medium">Your success is our priority</p>
             </div>
@@ -151,7 +152,7 @@ export default function HowTo() {
         {/* CTA */}
         <div className="text-center mt-16">
           <button className="btn btn-primary btn-wide rounded-full">
-            Start Your Order
+            ثبت سفارش
           </button>
         </div>
       </div>

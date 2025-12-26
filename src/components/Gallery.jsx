@@ -17,10 +17,10 @@ export default function Gallery() {
   const next = () => setIndex((i) => (i + 1) % images.length);
   const prev = () => setIndex((i) => (i - 1 + images.length) % images.length);
   return (
-    <main className="min-h-screen bg-base-100 py-20 ">
-      <div className="mx-auto lg:max-w-5xl px-6">
+    <main className="min-h-screen bg-base-300 lg:py-20 ">
+      <div className="mx-auto lg:max-w-5xl px-6 ">
         <div className="relative">
-          <div className="overflow-hidden rounded-2xl border border-base-300 ">
+          <div className="overflow-hidden rounded-2xl  lg:border border-primary">
             <AnimatePresence mode="popLayout">
               <motion.img
                 key={images[index]}
@@ -30,13 +30,13 @@ export default function Gallery() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -40 }}
                 transition={{ duration: 0.4, ease: "backIn" }}
-                className="w-full h-[420px] object-contain "
+                className="w-full h-[420px] object-contain   "
               />
             </AnimatePresence>
           </div>
 
           {/* Controls */}
-          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4">
+          <div className="absolute inset-y-0 left-20 right-20  items-center justify-between px-4 hidden lg:flex">
             <button
               onClick={prev}
               className="btn btn-circle btn-sm bg-base-100/80 backdrop-blur hover:bg-base-100"

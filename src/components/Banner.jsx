@@ -4,16 +4,20 @@ import { useEffect, useState } from "react";
 
 const HERO_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
-    alt: "International Academic Conference",
+    src: "https://res.cloudinary.com/dv3quprrl/image/upload/f_auto,q_auto/v1766760580/terren-hurst-blgOFmPIlr0-unsplash_ui0zjw.jpg",
+    alt: "رویداد دانشگاهی و کنفرانس علمی در برلین آلمان",
   },
   {
-    src: "https://images.unsplash.com/photo-1457694587812-e8bf29a43845",
-    alt: "Scientific Journals and Research Articles",
+    src: "https://res.cloudinary.com/dv3quprrl/image/upload/f_auto,q_auto/v1766760581/alexandre-pellaes-6vAjp0pscX0-unsplash_yutytp.jpg",
+    alt: "کنفرانس علمی بین‌المللی با حضور پژوهشگران و اساتید دانشگاه",
   },
   {
-    src: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade",
-    alt: "Berlin Academic Event",
+    src: "https://res.cloudinary.com/dv3quprrl/image/upload/f_auto,q_auto/v1766760582/headway-F2KRf_QfCqw-unsplash_bkcxu3.jpg",
+    alt: "ثبت مقاله در ژورنال‌های معتبر بین‌المللی",
+  },
+  {
+    src: "https://res.cloudinary.com/dv3quprrl/image/upload/f_auto,q_auto/v1766760581/the-climate-reality-project-Hb6uWq0i4MI-unsplash_ziwue0.jpg",
+    alt: "فرصت ارائه مقاله در کنفرانس‌های معتبر اروپایی",
   },
 ];
 
@@ -27,57 +31,56 @@ export default function HeroGlassLarge() {
     return () => clearInterval(timer);
   }, []);
 
+  const current = HERO_IMAGES[index];
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-10">
+    <section className="relative min-h-screen flex items-center justify-center lg:pt-10 font-serif">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/90 to-accent/90 blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-primary/40 to-black/40 blur-3xl" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 lg:glass rounded-3xl max-w-6xl w-full mx-4 p-6 md:p-10"
+        transition={{ duration: 0.4 }}
+        className="relative z-10 lg:glass lg:rounded-3xl lg:max-w-6xl w-full lg:mx-4 lg:p-6 md:p-10"
       >
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-          {/* Images */}
+        <div className="relative lg:rounded-2xl overflow-hidden shadow-2xl">
+          {/* Image slider */}
           <AnimatePresence mode="wait">
             <motion.img
-              key={index}
-              src={HERO_IMAGES[index].src}
-              alt={HERO_IMAGES[index].alt}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              key={current.src}
+              src={current.src}
+              alt={current.alt}
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full h-[420px] object-cover"
+              className="w-full lg:h-[420px] h-screen object-cover"
             />
           </AnimatePresence>
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/45 flex items-center">
+          <div
+            dir="rtl"
+            className="absolute inset-0 bg-black/45 flex items-center"
+          >
             <div className="max-w-xl px-6 text-white">
               <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
-                International Conference
-                <br />
-                Berlin, Germany — 2026
+                کنفرانس‌ها و ژورنال‌های بین‌المللی
               </h1>
 
-              <p className="mt-4 text-white/80 text-lg">
-                Open for journal submissions, research articles, and conference
-                papers. Professional academic support from submission to
-                acceptance.
-              </p>
+              <p className="mt-4 text-white/80 text-lg">{current.alt}</p>
 
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link to="/order" className="btn btn-primary rounded-full">
-                  Place an Order
+                  ثبت سفارش مقاله
                 </Link>
 
                 <Link
                   to="/certificates"
                   className="btn btn-outline btn-white rounded-full"
                 >
-                  View Accepted Journals
+                  مشاهده مقالات ثبت‌شده
                 </Link>
               </div>
             </div>

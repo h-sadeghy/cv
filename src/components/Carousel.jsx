@@ -18,10 +18,10 @@ export default function ImageShowcase() {
   const prev = () => setIndex((i) => (i - 1 + images.length) % images.length);
 
   return (
-    <section className="py-20 bg-base-100">
-      <div className="mx-auto max-w-5xl px-6">
+    <section className="py-20 bg-base-300 ">
+      <div className="mx-auto lg:max-w-6xl lg:px-6 lg:border-1 border-primary rounded-2xl">
         {/* Header */}
-        <div className="mb-10 flex items-end justify-between">
+        <div className="lg:mb-10 flex items-end justify-between px-2 lg:px-0">
           <div>
             <h2 className="text-2xl font-semibold">Certificates</h2>
             <p className="text-base-content/60 mt-2">
@@ -39,7 +39,7 @@ export default function ImageShowcase() {
 
         {/* Carousel */}
         <div className="relative">
-          <div className="overflow-hidden rounded-2xl border border-base-300 ">
+          <div className="overflow-hidden rounded-2xl  lg:w-md mx-auto  ">
             <AnimatePresence mode="popLayout">
               <motion.img
                 key={images[index]}
@@ -55,7 +55,7 @@ export default function ImageShowcase() {
           </div>
 
           {/* Controls */}
-          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4">
+          <div className="absolute inset-y-0 left-30 right-30  items-center justify-between px-4 hidden lg:flex">
             <button
               onClick={prev}
               className="btn btn-circle btn-sm bg-base-100/80 backdrop-blur hover:bg-base-100"

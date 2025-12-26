@@ -2,6 +2,8 @@ import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiFillCloseCircle } from "react-icons/ai";
 import certificates from "../data/certificates";
+import { BsGrid3X3GapFill } from "react-icons/bs";
+import { TfiLayoutGrid4Alt } from "react-icons/tfi";
 const FILTERS = [
   "All",
   "Electronics Engineering",
@@ -19,7 +21,7 @@ export default function Certificates() {
   const [filter, setFilter] = useState("All");
   const [showAll, setShowAll] = useState(false);
   const [previewCert, setPreviewCert] = useState(null);
-
+  const [gridCols, setGridCols] = useState(4);
   const filtered = useMemo(() => {
     return filter === "All"
       ? certificates
@@ -31,7 +33,7 @@ export default function Certificates() {
   }, [filtered, showAll]);
 
   return (
-    <main className="min-h-screen bg-base-100 py-20">
+    <main className="min-h-screen bg-base-100 py-15 ">
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <header className="mb-10">
@@ -57,13 +59,43 @@ export default function Certificates() {
             </button>
           ))}
         </div>
-        <button className="btn btn-ghost">
-          {filter ? filter : "all"}{" "}
-          <div className="badge badge-sm">{filtered.length}</div>
-        </button>
+        <div className="flex flex-row justify-between mb-2">
+          <button className="btn btn-primary">
+            {filter ? filter : "all"}{" "}
+            <div className="badge badge-sm">{filtered.length}</div>
+          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setGridCols(3)}
+              className={`p-2 hidden lg:block cursor-pointer rounded-lg ${
+                gridCols === 3
+                  ? "bg-primary text-warning"
+                  : "bg-ghost hover:bg-primary"
+              }`}
+            >
+              <BsGrid3X3GapFill size={18} />
+            </button>
+            <button
+              onClick={() => setGridCols(4)}
+              className={`p-2 hidden lg:block  cursor-pointer rounded-lg ${
+                gridCols === 4
+                  ? "bg-primary text-warning"
+                  : "bg-ghost hover:bg-primary"
+              }`}
+            >
+              <TfiLayoutGrid4Alt size={18} />
+            </button>
+          </div>
+        </div>
 
         {/* Grid */}
-        <motion.div layout className="grid gap-6 grid-cols-1 lg:grid-cols-3">
+        <motion.div
+          layout
+          className={`grid gap-6 grid-cols-1 md:grid-cols-2   
+                  ${gridCols === 3 && "lg:grid-cols-3"}
+                  ${gridCols === 4 && "lg:grid-cols-4"}
+                }`}
+        >
           <AnimatePresence mode="popLayout">
             {visible.map((cert) => (
               <motion.div
@@ -78,20 +110,28 @@ export default function Certificates() {
                 className="cursor-pointer border border-base-300 rounded-xl p-5
                            hover:shadow-md transition-shadow card h-82 "
               >
-                <figure className="px-5 ">
+                <figure className="px-5 relative h-44 w-full">
                   <img
                     src={cert.images[0]}
                     alt={cert.title}
-                    className="  h-36 object-contain rounded-md bg-base-200"
+                    className="max-h-full  max-w-full object-cover "
                   />
                 </figure>
-                <div className="card-body items-center text-center">
-                  <h2 className="card-title">{cert.title}</h2>
+                <div className="card-body items-center text-center  w-full">
+                  <h2
+                    className={`card-title   ${
+                      gridCols === 3
+                        ? "break-normal line-clamp-2 "
+                        : "line-clamp-1 "
+                    }`}
+                  >
+                    {cert.title}
+                  </h2>
                   <p>
                     {cert.issuer} {cert.year} {cert.type}
                   </p>
                   <div className="card-actions">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">More Details</button>
                   </div>
                 </div>
               </motion.div>

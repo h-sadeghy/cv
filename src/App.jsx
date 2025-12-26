@@ -9,10 +9,13 @@ import Research from "./components/Research";
 import Gallery from "./components/Gallery";
 import Order from "./components/Order";
 import OrderDetails from "./components/OrderDetails";
+import MobileDrawer from "./components/MobileDrawer";
+import Footer from "./components/Footer";
 export default function App() {
   return (
     <div>
       <Navbar />
+      <MobileDrawer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cv" element={<CV />} />
@@ -22,6 +25,7 @@ export default function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/order/:id" element={<OrderDetails />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

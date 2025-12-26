@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import MobileMenu from "./MobileNavbar";
+import MobileMenu from "./MobileDrawer";
 import ThemeToggle from "./ThemeToggle";
+import { BiPlus } from "react-icons/bi";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,14 +18,14 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        className={`fixed top-0 left-0 right-0 z-50 transition-all font-serif duration-300 md:block hidden
         ${
           scrolled
             ? "bg-transparent backdrop-blur-xs border-b border-black/5 shadow-sm"
-            : "bg-transparent"
+            : " backdrop-blur-3xl bg-black/10"
         }`}
       >
-        <div className="mx-auto max-w-6xl lg:px-2 px-2 h-16 flex items-center justify-between ">
+        <div className="mx-auto max-w-6xl   px-2 h-16 flex items-center justify-between ">
           {/* Logo / Name */}
           <div className="font-semibold text-lg tracking-tight">
             <a href="/">
@@ -86,14 +87,12 @@ export default function Header() {
             <a
               href="/order"
               className="text-md font-bold px-4 py-2 rounded-full
-            bg-primary text-primary-content hover:bg-primary transition hidden lg:block"
+            bg-primary text-primary-content hover:bg-primary transition hidden lg:block  "
             >
-              ثبت سفارش+
+              ثبت سفارش
             </a>
-            <div className="flex justify-endm ">
+            <div className="flex justify-end ">
               <ThemeToggle />
-
-              <MobileMenu />
             </div>
           </div>
         </div>

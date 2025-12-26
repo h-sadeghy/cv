@@ -15,14 +15,14 @@ export default function OrderDetails() {
 
   if (!cert) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-base-100 flex items-center justify-center">
         <p className="text-base-content/60">Certificate not found.</p>
       </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-base-100 py-15">
+    <main className="min-h-screen bg-base-300 py-15">
       <div className="mx-auto max-w-6xl px-6">
         {/* Back */}
         <button
@@ -40,13 +40,13 @@ export default function OrderDetails() {
         >
           {/* Preview */}
           <div className="flex items-center justify-center">
-            <div className="card bg-base-100 border border-base-300 w-full max-w-md">
-              <div className="card-body p-6 items-center text-center">
+            <div className="card  bg-base-100 border border-base-300 w-full max-w-md">
+              <div className="card-body p-1 bg-base-100 rounded-xl   items-center text-center">
                 <img
                   onClick={() => setPreview(cert)}
                   src={cert.images[0]}
                   alt={cert.title}
-                  className="max-h-80 cursor-pointer object-contain rounded-md bg-base-200 p-4"
+                  className="max-h-92  cursor-pointer object-contain rounded-md bg-base-200 "
                 />
               </div>
             </div>
@@ -66,15 +66,15 @@ export default function OrderDetails() {
             </div>
 
             {/* Description */}
-            <div className="mt-6 space-y-3 text-base-content/80">
+            <div dir="rtl" className="mt-6 space-y-3 text-base-content/80 ">
               <p>
-                This certificate validates professional knowledge and practical
-                experience in <strong>{cert.type}</strong>. It is suitable for
-                academic, professional, and portfolio use.
+                این گواهی‌نامه تأییدکننده دانش تخصصی و تجربه عملی در حوزه{" "}
+                می‌باشد و برای استفاده‌های دانشگاهی، حرفه‌ای و درج در رزومه یا
+                پورتفولیو مناسب است.
               </p>
               <p>
-                All certificates are reviewed for accuracy and delivered in
-                high-quality digital format.
+                تمامی گواهی‌ها از نظر دقت و صحت اطلاعات بررسی شده و در قالب
+                دیجیتال با کیفیت بالا ارائه می‌گردند.
               </p>
             </div>
 
@@ -96,14 +96,14 @@ export default function OrderDetails() {
                       alert("Order placed (mock)");
                     }}
                   >
-                    Order Certificate
+                    سفارش مقاله
                   </button>
 
                   <button
                     className="btn btn-outline"
                     onClick={() => navigate("/order")}
                   >
-                    Browse More
+                    مشاهده بیشتر
                   </button>
                 </div>
               </div>
